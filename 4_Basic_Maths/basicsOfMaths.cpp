@@ -90,6 +90,44 @@ int reverse(int x)
     return reverseNum;
 }
 
+bool checkPalindrom(int x)
+{
+    int n = x;
+    int reverseNum = 0;
+    for (n; n > 0; n = n / 10)
+    {
+        int mod = n % 10;
+        reverseNum = (reverseNum * 10) + mod;
+    }
+    if (reverseNum == x)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
+bool checkArmstrongNumber(int x)
+{
+    int n = x;
+    int sum = 0;
+    for (n; n > 0; n = n / 10)
+    {
+        int ld = n % 10;
+        sum = sum + (ld * ld * ld);
+    }
+    if (sum == x)
+    {
+        return true;
+    }
+    else
+    {
+        return false;
+    }
+}
+
 int main()
 {
     int n;
@@ -100,6 +138,12 @@ int main()
     // reverseNumber(n);
     // int ans = reverse(n);
     // cout << ans;
-    cout << abs(n);
+
+    // bool ans = checkPalindrom(n);
+    bool ans = checkArmstrongNumber(n);
+    if (ans == 1)
+        cout << "true";
+    else
+        cout << "false";
     return 0;
 }
