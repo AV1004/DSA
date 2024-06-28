@@ -120,13 +120,89 @@ bool checkArmstrongNumber(int x)
     }
     if (sum == x)
     {
-        
+
         return true;
     }
     else
     {
         return false;
     }
+}
+
+// The time complexity of this is O(n)
+void printAllDivisors(int n)
+{
+    for (int i = 1; i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            cout << i << " ";
+        }
+    }
+}
+
+// THe time complexity of this is O(sqrt(n))
+void printAllDivisorsWithLessTC(int n)
+{
+
+    vector<int> divisors;
+
+    // for (int i = 1; i <= sqrt(n); i++)
+    for (int i = 1; i * i <= n; i++) // you can also use this instead of sqrt function
+    {
+        if (n % i == 0)
+        {
+            divisors.emplace_back(i);
+            if ((n / i) != i)
+            {
+                divisors.emplace_back(n / i);
+            }
+        }
+    }
+
+    sort(divisors.begin(), divisors.end());
+
+    for (auto it : divisors)
+    {
+        cout << it << " ";
+    }
+}
+
+// GFG Problem
+long long sumOfDivisors(int N)
+{
+    int sum = 0;
+    long long finalSum = 0;
+    for (int i = 1; i <= N; i++)
+    {
+        for (int j = 1; j <= sqrt(i); j++)
+        {
+            if (i % j == 0)
+            {
+                sum = sum + j;
+                if ((i / j) != j)
+                {
+                    sum = sum + (i / j);
+                }
+            }
+        }
+        // SOD.emplace_back(sum);
+        finalSum = finalSum + sum;
+        sum = 0;
+    }
+
+    cout << finalSum;
+    return finalSum;
+}
+
+long long sumOfDivisorsWithLessTC(int N)
+{
+    long long finalSum = 0;
+    for (int i = 1; i <= N; i++)
+    {
+        finalSum += i * (N / i);
+    }
+    return finalSum;
 }
 
 int main()
@@ -141,10 +217,14 @@ int main()
     // cout << ans;
 
     // bool ans = checkPalindrom(n);
-    bool ans = checkArmstrongNumber(n);
-    if (ans == 1)
-        cout << "true";
-    else
-        cout << "false";
+    // bool ans = checkArmstrongNumber(n);
+    // if (ans == 1)
+    //     cout << "true";
+    // else
+    //     cout << "false";
+
+    // printAllDivisors(n);
+    // printAllDivisorsWithLessTC(n);
+    sumOfDivisors(n);
     return 0;
 }
