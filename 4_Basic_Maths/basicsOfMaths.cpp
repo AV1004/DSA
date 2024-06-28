@@ -205,9 +205,53 @@ long long sumOfDivisorsWithLessTC(int N)
     return finalSum;
 }
 
+int checkForPrime(int n)
+{
+    int count = 0;
+    for (int i = 1; i * i <= n; i++)
+    {
+        if (n % i == 0)
+        {
+            count++;
+            if ((n / i) != i)
+            {
+                count++;
+            }
+        }
+    }
+    return count;
+}
+
+int giveGCDorHCF(int n1, int n2)
+{
+    for (int n = min(n1, n2); n >= 1; n--)
+    {
+        if (n1 % n == 0 && n2 % n == 0)
+        {
+            return n;
+        }
+    }
+    return -1;
+}
+
+int giveGCDorHCFUsingEA(int n1, int n2)
+{
+    int a = n1, b = n2;
+    while (a > 0 && b > 0)
+    {
+        if (a > b)
+            a = a % b;
+        else
+            b = b % a;
+    }
+    if (a == 0)
+        return b;
+    return a;
+}
+
 int main()
 {
-    int n;
+    long long n;
     cin >> n;
     // extractionOfDigitFromNumbers(n);
     // int digits_in_n = giveDigits(n);
@@ -225,6 +269,9 @@ int main()
 
     // printAllDivisors(n);
     // printAllDivisorsWithLessTC(n);
-    sumOfDivisors(n);
+    // sumOfDivisors(n);
+    // int Ans = checkForPrime(n);
+    // int Ans = giveGCDorHCFUsingEA(n, 12);
+
     return 0;
 }
