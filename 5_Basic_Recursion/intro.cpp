@@ -94,6 +94,24 @@ void NtoOneUsingBacktracking(int i, int n)
 }
 
 // Print Sum of first N Numbers using Recursion
+// Parameterized method
+int sumOfN(int n, int sum)
+{
+    if (n < 1)
+    {
+        return sum;
+    }
+    return sumOfN(n - 1, sum + n);
+}
+// Functional method
+int sumOFN(int n)
+{
+    if (n == 0)
+    {
+        return 0;
+    }
+    return n + sumOFN(n - 1);
+}
 
 int main()
 {
@@ -106,6 +124,9 @@ int main()
     // printTillN(1, n);
     // printReverseTo1FromN(n, 1);
     // oneToNUsingBackTrack(n, n);
-    NtoOneUsingBacktracking(1, n);
+    // NtoOneUsingBacktracking(1, n);
+    // int ans = sumOfN(n, 0);
+    int ans = sumOFN(n);
+    cout << ans;
     return 0;
 }
