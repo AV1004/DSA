@@ -113,10 +113,51 @@ int sumOFN(int n)
     return n + sumOFN(n - 1);
 }
 
+// Factorial of N number using recursion
+// Fucntional
+double factOfN(int n)
+{
+    if (n == 0)
+    {
+        return 1;
+    }
+    return n * factOfN(n - 1);
+}
+
+// Parameterised
+double factOFN(int n, double fact)
+{
+    if (n < 1)
+    {
+        return fact;
+    }
+    return factOFN(n - 1, fact * n);
+}
+
+// Reverse of an array using recursion
+void reverseArray(int i, int arr[], int n)
+{
+    if (i >= n / 2)
+        return;
+    swap(arr[i], arr[n - i - 1]);
+    reverseArray(i + 1, arr, n);
+}
+
+// Check if a string is a palindrome or not
+bool isStringPalindrome(int i, string &s)
+{
+    if (i >= s.size() / 2)
+        return true;
+    if (s[i] != s[s.size() - i - 1])
+        return false;
+    return isStringPalindrome(i + 1, s);
+}
+
 int main()
 {
     int n;
     cin >> n;
+
     // infiniteRecursiveCalls(n);
     // recrusiveCall();
     // printNos(n);
@@ -126,7 +167,25 @@ int main()
     // oneToNUsingBackTrack(n, n);
     // NtoOneUsingBacktracking(1, n);
     // int ans = sumOfN(n, 0);
-    int ans = sumOFN(n);
-    cout << ans;
+    // int ans = sumOFN(n);
+    // double ans = factOfN(n);
+    // double ans = factOFN(n, 1);
+    // cout << ans;
+
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cin >> arr[i];
+    // }
+    // reverseArray(0, arr, n);
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
+
+    string str;
+    cin >> str;
+    bool ans = isStringPalindrome(0, str);
+    (ans == 0) ? cout << "false" : cout << "true";
     return 0;
 }
