@@ -153,6 +153,16 @@ bool isStringPalindrome(int i, string &s)
     return isStringPalindrome(i + 1, s);
 }
 
+// Fibonacci series using recursion
+int fibonacciOfN(int n)
+{
+    if (n <= 1)
+    {
+        return n;
+    }
+    return fibonacciOfN(n - 1) + fibonacciOfN(n - 2);
+}
+
 int main()
 {
     int n;
@@ -182,10 +192,12 @@ int main()
     // {
     //     cout << arr[i] << " ";
     // }
+    // string str;
+    // cin >> str;
+    // bool ans = isStringPalindrome(0, str);
+    // (ans == 0) ? cout << "false" : cout << "true";
 
-    string str;
-    cin >> str;
-    bool ans = isStringPalindrome(0, str);
-    (ans == 0) ? cout << "false" : cout << "true";
+    cout << fibonacciOfN(n);
+
     return 0;
 }
