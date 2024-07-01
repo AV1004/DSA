@@ -163,7 +163,6 @@ int fibonacciOfN(int n)
     return fibonacciOfN(n - 1) + fibonacciOfN(n - 2);
 }
 
-
 int main()
 {
     int n;
