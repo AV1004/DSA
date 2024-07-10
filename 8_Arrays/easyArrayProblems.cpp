@@ -70,6 +70,20 @@ bool isArraySorted(int arr[], int n)
     return true;
 }
 
+int removeDuplicatesFromSortedArray(int arr[], int n)
+{
+    int i = 0;
+    for (int j = 1; j < n; j++)
+    {
+        if (arr[j] != arr[i])
+        {
+            arr[i + 1] = arr[j];
+            i++;
+        }
+    }
+    return i + 1;
+}
+
 int main()
 {
     int n;
@@ -82,7 +96,12 @@ int main()
     // int ans = maxELement(arr, n);
     // int ans = secondLargest(arr, n);
     // int ans = secondSmallest(arr, n);
-    int ans = isArraySorted(arr, n);
+    // int ans = isArraySorted(arr, n);
+    int ans = removeDuplicatesFromSortedArray(arr, n);
+    for (int i = 0; i < ans; i++)
+    {
+        cout << arr[i] << " ";
+    }
     cout << "Answer is " << ans;
     return 0;
 }
