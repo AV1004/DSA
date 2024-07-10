@@ -55,6 +55,21 @@ int secondSmallest(int arr[], int n)
     return ssmallest;
 }
 
+bool isArraySorted(int arr[], int n)
+{
+    for (int i = 1; i < n; i++)
+    {
+        if (arr[i] >= arr[i - 1])
+        {
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
 int main()
 {
     int n;
@@ -66,7 +81,8 @@ int main()
     }
     // int ans = maxELement(arr, n);
     // int ans = secondLargest(arr, n);
-    int ans = secondSmallest(arr, n);
+    // int ans = secondSmallest(arr, n);
+    int ans = isArraySorted(arr, n);
     cout << "Answer is " << ans;
     return 0;
 }
