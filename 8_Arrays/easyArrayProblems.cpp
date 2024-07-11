@@ -84,6 +84,16 @@ int removeDuplicatesFromSortedArray(int arr[], int n)
     return i + 1;
 }
 
+void leftRotateArrayByOnePlace(int arr[], int n)
+{
+    int temp = arr[0];
+    for (int i = 1; i < n; i++)
+    {
+        arr[i - 1] = arr[i];
+    }
+    arr[n - 1] = temp;
+}
+
 int main()
 {
     int n;
@@ -97,11 +107,12 @@ int main()
     // int ans = secondLargest(arr, n);
     // int ans = secondSmallest(arr, n);
     // int ans = isArraySorted(arr, n);
-    int ans = removeDuplicatesFromSortedArray(arr, n);
-    for (int i = 0; i < ans; i++)
+    // int ans = removeDuplicatesFromSortedArray(arr, n);
+    leftRotateArrayByOnePlace(arr, n);
+    for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
-    cout << "Answer is " << ans;
+    // cout << "Answer is " << ans;
     return 0;
 }
