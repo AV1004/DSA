@@ -94,6 +94,8 @@ void leftRotateArrayByOnePlace(int arr[], int n)
     arr[n - 1] = temp;
 }
 
+
+
 int main()
 {
     int n;
