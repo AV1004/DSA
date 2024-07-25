@@ -242,7 +242,7 @@ int missingNumber(vector<int> &a, int N)
         xor2 = xor2 ^ a[i];
         xor1 = xor1 ^ (i + 1);
     }
-    xo1 = xor1 ^ N;
+    xor1 = xor1 ^ N;
     return xor1 ^ xor2;
 }
 
