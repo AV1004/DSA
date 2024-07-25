@@ -103,7 +103,8 @@ void leftRotateArrayByDPlaces(int arr[], int d, int n)
 
 void rightRotateArrayByDPlaces(int arr[], int d, int k)
 {
-    int D = k - d;
+    int modD = d % k;
+    int D = k - modD;
     leftRotateArrayByDPlaces(arr, D, k);
 }
 
@@ -122,8 +123,8 @@ int main()
     // int ans = isArraySorted(arr, n);
     // int ans = removeDuplicatesFromSortedArray(arr, n);
     // leftRotateArrayByOnePlace(arr, n);
-    // leftRotateArrayByDPlaces(arr, 3, n);
-    rightRotateArrayByDPlaces(arr, 3, n);
+    leftRotateArrayByDPlaces(arr, 3, n);
+    // rightRotateArrayByDPlaces(arr, 3, n);
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
