@@ -120,6 +120,33 @@ void reverseArray(int arr[], int start, int end)
     }
 }
 
+void moveAllZerosToEndInArray(int arr[], int n)
+{
+    int j = -1;
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == 0)
+        {
+            j = i;
+            break;
+        }
+    }
+
+    if (j != -1)
+    {
+        for (int i = j + 1; i < n; i++)
+        {
+            if (arr[i] != 0)
+            {
+                int temp = arr[j];
+                arr[j] = arr[i];
+                arr[i] = temp;
+                j++;
+            }
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -137,7 +164,8 @@ int main()
     // leftRotateArrayByOnePlace(arr, n);
     // leftRotateArrayByDPlaces(arr, 3, n);
     // rightRotateArrayByDPlaces(arr, 3, n);
-    reverseArray(arr, 0, n - 1);
+    // reverseArray(arr, 0, n - 1);
+    moveAllZerosToEndInArray(arr, n);
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
