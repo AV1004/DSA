@@ -108,6 +108,18 @@ void rightRotateArrayByDPlaces(int arr[], int d, int k)
     leftRotateArrayByDPlaces(arr, D, k);
 }
 
+void reverseArray(int arr[], int start, int end)
+{
+    while (start <= end)
+    {
+        int temp = arr[start];
+        arr[start] = arr[end];
+        arr[end] = temp;
+        start++;
+        end--;
+    }
+}
+
 int main()
 {
     int n;
@@ -123,8 +135,9 @@ int main()
     // int ans = isArraySorted(arr, n);
     // int ans = removeDuplicatesFromSortedArray(arr, n);
     // leftRotateArrayByOnePlace(arr, n);
-    leftRotateArrayByDPlaces(arr, 3, n);
+    // leftRotateArrayByDPlaces(arr, 3, n);
     // rightRotateArrayByDPlaces(arr, 3, n);
+    reverseArray(arr, 0, n - 1);
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
