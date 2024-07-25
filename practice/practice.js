@@ -21,4 +21,6 @@ a.forEach((e) => {
   }
 });
 
-console.log(arr);
+a.reverse();
+
+console.log(a);
