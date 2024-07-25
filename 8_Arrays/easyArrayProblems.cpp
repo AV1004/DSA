@@ -147,6 +147,91 @@ void moveAllZerosToEndInArray(int arr[], int n)
     }
 }
 
+int linerSerch(int arr[], int n, int element)
+{
+    for (int i = 0; i < n; i++)
+    {
+        if (arr[i] == element)
+        {
+            return i;
+        }
+    }
+    return -1;
+}
+
+vector<int> unionOfArray(vector<int> arr1, vector<int> arr2)
+{
+    int n1 = arr1.size();
+    int n2 = arr2.size();
+    int i = 0;
+    int j = 0;
+    vector<int> unionArr;
+    while (i < n1 && j < n2)
+    {
+        if (arr1[i] <= arr2[j])
+        {
+            if (unionArr.size() == 0 || unionArr.back() != arr1[i])
+            {
+                unionArr.push_back(arr1[i]);
+            }
+            i++;
+        }
+        else
+        {
+            if (unionArr.size() == 0 || unionArr.back() != arr2[j])
+            {
+                unionArr.push_back(arr2[j]);
+            }
+            j++;
+        }
+    }
+
+    while (i < n1)
+    {
+        if (unionArr.size() == 0 || unionArr.back() != arr1[i])
+        {
+            unionArr.push_back(arr1[i]);
+        }
+        i++;
+    }
+
+    while (j < n1)
+    {
+        if (unionArr.size() == 0 || unionArr.back() != arr2[j])
+        {
+            unionArr.push_back(arr2[j]);
+        }
+        j++;
+    }
+
+    return unionArr;
+}
+
+vector<int> intersectionOfArray(vector<int> arr1, int n, vector<int> arr2, int m)
+{
+    int i = 0;
+    int j = 0;
+    vector<int> ans;
+    while (i < n && j < m)
+    {
+        if (arr1[i] < arr[j])
+        {
+            i++;
+        }
+        else if (arr1[i] > arr2[j])
+        {
+            j++;
+        }
+        else
+        {
+            ans.push_back(arr1[i]);
+            i++;
+            j++;
+        }
+    }
+
+    return ans;
+}
 int main()
 {
     int n;
@@ -165,11 +250,12 @@ int main()
     // leftRotateArrayByDPlaces(arr, 3, n);
     // rightRotateArrayByDPlaces(arr, 3, n);
     // reverseArray(arr, 0, n - 1);
-    moveAllZerosToEndInArray(arr, n);
+    // moveAllZerosToEndInArray(arr, n);
     for (int i = 0; i < n; i++)
     {
         cout << arr[i] << " ";
     }
-    // cout << "Answer is " << ans;
+    int index = linerSerch(arr, n, 3);
+    cout << "Answer is " << index;
     return 0;
 }
