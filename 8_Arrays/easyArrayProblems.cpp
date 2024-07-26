@@ -214,7 +214,7 @@ vector<int> intersectionOfArray(vector<int> arr1, int n, vector<int> arr2, int m
     vector<int> ans;
     while (i < n && j < m)
     {
-        if (arr1[i] < arr[j])
+        if (arr1[i] < arr2[j])
         {
             i++;
         }
@@ -246,15 +246,57 @@ int missingNumber(vector<int> &a, int N)
     return xor1 ^ xor2;
 }
 
+int missingNumberUsingSum(vector<int> &a, int N)
+{
+    int sumOfNs = N * (N + 1) / 2;
+    int sumOfArr = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        sumOfArr += a[i];
+    }
+
+    return sumOfNs - sumOfArr;
+}
+
+int maxiumConsicutiveOnes(vector<int> &a, int n)
+{
+    int maxi = 0;
+    int cnt = 0;
+    for (int i = 0; i < n; i++)
+    {
+        if (a[i] == 1)
+        {
+            cnt++;
+            maxi = max(maxi, cnt);
+        }
+        else
+        {
+            cnt = 0;
+        }
+    }
+
+    return maxi;
+}
+
+int numberThatAppearsOnlyOnce(vector<int> &a, int n)
+{
+    int XOR = 0;
+    for (int i = 0; i < n; i++)
+    {
+        XOR = XOR ^ a[i];
+    }
+    return XOR;
+}
+
 int main()
 {
     int n;
     cin >> n;
-    int arr[n];
-    for (int i = 0; i < n; i++)
-    {
-        cin >> arr[i];
-    }
+    // int arr[n];
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cin >> arr[i];
+    // }
     // int ans = maxELement(arr, n);
     // int ans = secondLargest(arr, n);
     // int ans = secondSmallest(arr, n);
@@ -265,11 +307,24 @@ int main()
     // rightRotateArrayByDPlaces(arr, 3, n);
     // reverseArray(arr, 0, n - 1);
     // moveAllZerosToEndInArray(arr, n);
+    // int index = linerSerch(arr, n, 3);
+
+    vector<int> arr;
     for (int i = 0; i < n; i++)
     {
-        cout << arr[i] << " ";
+        int inputNo;
+        cin >> inputNo;
+        arr.push_back(inputNo);
     }
-    int index = linerSerch(arr, n, 3);
+
+    // int index = missingNumber(arr, 5);
+    // int index = missingNumberUsingSum(arr, 5);
+    int index = maxiumConsicutiveOnes(arr, n);
+
+    // for (int i = 0; i < n; i++)
+    // {
+    //     cout << arr[i] << " ";
+    // }
     cout << "Answer is " << index;
     return 0;
 }
