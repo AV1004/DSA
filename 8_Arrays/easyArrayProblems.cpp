@@ -288,6 +288,59 @@ int numberThatAppearsOnlyOnce(vector<int> &a, int n)
     return XOR;
 }
 
+int longestSubArrayWithSumKOnlyPositives(vector<int> &a, int k)
+{
+    int left = 0, right = 0;
+    long long sum = a[0];
+    int maxLen = 0;
+    int n = a.size();
+    while (right < n)
+    {
+        while (left <= right && sum > k)
+        {
+            sum -= a[left];
+            left++;
+        }
+        if (sum == k)
+        {
+            maxLen = max(maxLen, right - left + 1);
+        }
+        right++;
+        if (right < n)
+        {
+            sum += a[right];
+        }
+    }
+
+    return maxLen;
+}
+
+int longestSubarrayWithSumKWithNagativeValuesAlso(vector<int> &a, long long k)
+{
+    map<long long, int> preSum;
+    long long sum = 0;
+    int maxLen = 0;
+    for (int i = 0; i < a.size(); i++)
+    {
+        sum += a[i];
+        if (sum == k)
+        {
+            maxLen = max(maxLen, i + 1);
+        }
+        long long rem = sum - k;
+        if (preSum.find(rem) != preSum.end())
+        {
+            int len = i - preSum[rem];
+            maxLen = max(maxLen, len);
+        }
+        if (preSum.find(sum) == preSum.end())
+        {
+            preSum[sum] = i;
+        }
+    }
+    return maxLen;
+}
+
 int main()
 {
     int n;
@@ -319,7 +372,9 @@ int main()
 
     // int index = missingNumber(arr, 5);
     // int index = missingNumberUsingSum(arr, 5);
-    int index = maxiumConsicutiveOnes(arr, n);
+    // int index = maxiumConsicutiveOnes(arr, n);
+    // int index = longestSubArrayWithSumKOnlyPositives(arr, 6);
+    int index = longestSubarrayWithSumKWithNagativeValuesAlso(arr, 3);
 
     // for (int i = 0; i < n; i++)
     // {
