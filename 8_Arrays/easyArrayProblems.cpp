@@ -288,6 +288,10 @@ int numberThatAppearsOnlyOnce(vector<int> &a, int n)
     return XOR;
 }
 
+
+
+
+
 int main()
 {
     int n;
