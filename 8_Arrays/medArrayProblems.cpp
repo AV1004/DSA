@@ -17,8 +17,6 @@ vector<int> TwoSumArrayProblem(vector<int> &a, int target)
     return {-1, -1};
 }
 
-
-
 string TwoSumArrayProblemInBoolean(vector<int> &a, int target)
 {
     int left = 0, right = a.size() - 1;
