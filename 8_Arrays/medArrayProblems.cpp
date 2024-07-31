@@ -40,6 +40,29 @@ string TwoSumArrayProblemInBoolean(vector<int> &a, int target)
     return "No";
 }
 
+void sortArraysOfoneSttwoSAndZeros(vector<int> &a, int n)
+{
+    int low = 0, mid = 0, high = n - 1;
+    while (mid <= high)
+    {
+        if (a[mid] == 0)
+        {
+            swap(a[mid], a[low]);
+            mid++;
+            low++;
+        }
+        else if (a[mid] == 1)
+        {
+            mid++;
+        }
+        else
+        {
+            swap(a[mid], a[high]);
+            high--;
+        }
+    }
+}
+
 int main()
 {
     int n;
@@ -53,12 +76,13 @@ int main()
     }
 
     // vector<int> ans = TwoSumArrayProblem(arr, 14);
-    // for (int i = 0; i < ans.size(); i++)
-    // {
-    //     cout << ans[i] << " ";
-    // }
-    string index = TwoSumArrayProblemInBoolean(arr, 14);
-    cout << "Answer is " << index;
+    // string index = TwoSumArrayProblemInBoolean(arr, 14);
+    sortArraysOfoneSttwoSAndZeros(arr, n);
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i] << " ";
+    }
+    // cout << "Answer is " << index;
 
     return 0;
 }
