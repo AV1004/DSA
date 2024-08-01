@@ -76,28 +76,28 @@
 //     console.log("Some error has occurred");
 //   });
 
-let promise = new Promise(function (resolve, reject) {
-  const x = "geeksforgeeks";
-  const y = "geeksforgeeks";
-  if (x === y) {
-    resolve();
-  } else {
-    reject();
-  }
-});
+// let promise = new Promise(function (resolve, reject) {
+//   const x = "geeksforgeeks";
+//   const y = "geeksforgeeks";
+//   if (x === y) {
+//     resolve();
+//   } else {
+//     reject();
+//   }
+// });
 
-promise
-  .then(function () {
-    console.log("promise 1 is resolved");
-    const p1 = new Promise((resolve, reject) => {
-      resolve(40);
-    });
-    return p1;
-  })
-  .then((value) => {
-    console.log(value);
-    console.log("promise 2 is resolved");
-  })
-  .catch(function () {
-    console.log("Some error has occurred");
-  });
+// promise
+//   .then(function () {
+//     console.log("promise 1 is resolved");
+//     const p1 = new Promise((resolve, reject) => {
+//       resolve(40);
+//     });
+//     return p1;
+//   })
+//   .then((value) => {
+//     console.log(value);
+//     console.log("promise 2 is resolved");
+//   })
+//   .catch(function () {
+//     console.log("Some error has occurred");
+//   });
