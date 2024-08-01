@@ -58,6 +58,24 @@
 // // Call the main function with the callback function
 // mainFunction(callbackFunction);
 
+// let promise = new Promise(function (resolve, reject) {
+//   const x = "geeksforgeeks";
+//   const y = "geeksforgeeks";
+//   if (x === y) {
+//     resolve();
+//   } else {
+//     reject();
+//   }
+// });
+
+// promise
+//   .then(function () {
+//     console.log("Success, You are a GEEK");
+//   })
+//   .catch(function () {
+//     console.log("Some error has occurred");
+//   });
+
 let promise = new Promise(function (resolve, reject) {
   const x = "geeksforgeeks";
   const y = "geeksforgeeks";
@@ -70,7 +88,15 @@ let promise = new Promise(function (resolve, reject) {
 
 promise
   .then(function () {
-    console.log("Success, You are a GEEK");
+    console.log("promise 1 is resolved");
+    const p1 = new Promise((resolve, reject) => {
+      resolve(40);
+    });
+    return p1;
+  })
+  .then((value) => {
+    console.log(value);
+    console.log("promise 2 is resolved");
   })
   .catch(function () {
     console.log("Some error has occurred");
