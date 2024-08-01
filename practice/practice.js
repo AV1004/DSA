@@ -40,20 +40,38 @@
 //   console.log(x + " ");
 // }
 
-function mainFunction(callback) {
-  console.log("Performing operation...");
-  // Use setTimeout to simulate an asynchronous operation
-  callback("beforeSetTimeout");
-  setTimeout(function () {
-    callback("Operation complete");
-  }, 5000);
-  callback("afterSetTimeout");
-}
+// function mainFunction(callback) {
+//   console.log("Performing operation...");
+//   // Use setTimeout to simulate an asynchronous operation
+//   callback("beforeSetTimeout");
+//   setTimeout(function () {
+//     callback("Operation complete");
+//   }, 5000);
+//   callback("afterSetTimeout");
+// }
 
-// Define the callback function
-function callbackFunction(result) {
-  console.log("Result: " + result);
-}
+// // Define the callback function
+// function callbackFunction(result) {
+//   console.log("Result: " + result);
+// }
 
-// Call the main function with the callback function
-mainFunction(callbackFunction);
+// // Call the main function with the callback function
+// mainFunction(callbackFunction);
+
+let promise = new Promise(function (resolve, reject) {
+  const x = "geeksforgeeks";
+  const y = "geeksforgeeks";
+  if (x === y) {
+    resolve();
+  } else {
+    reject();
+  }
+});
+
+promise
+  .then(function () {
+    console.log("Success, You are a GEEK");
+  })
+  .catch(function () {
+    console.log("Some error has occurred");
+  });
