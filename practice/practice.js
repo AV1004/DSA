@@ -28,7 +28,32 @@
 // let a;
 // console.log(a);
 
-let x = 10;
-let y = 2;
+// let x = 10;
+// let y = 2;
 
-console.log((x **= y));
+// console.log((x **= y));
+
+// const fruits = ["Banana", "Orange", "Apple", "Mango"];
+// const f = fruits.entries();
+
+// for (let x of f) {
+//   console.log(x + " ");
+// }
+
+function mainFunction(callback) {
+  console.log("Performing operation...");
+  // Use setTimeout to simulate an asynchronous operation
+  callback("beforeSetTimeout");
+  setTimeout(function () {
+    callback("Operation complete");
+  }, 5000);
+  callback("afterSetTimeout");
+}
+
+// Define the callback function
+function callbackFunction(result) {
+  console.log("Result: " + result);
+}
+
+// Call the main function with the callback function
+mainFunction(callbackFunction);
