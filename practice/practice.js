@@ -104,22 +104,22 @@ const Promise = require("bluebird");
 //     console.log("Some error has occurred");
 //   });
 
-const items = [1, 2, 3, 4, 5];
+// const items = [1, 2, 3, 4, 5];
 
-Promise.each(items, (item) => {
-  // Perform an asynchronous operation for each item
-  return new Promise((resolve) => {
-    setTimeout(() => {
-      console.log(item);
-      resolve();
-    }, 2000);
-  });
-})
-  .then(() => {
-    console.log("All items processed.");
-  })
-  .catch((error) => {
-    console.error(error);
-  });
+// Promise.each(items, (item) => {
+//   // Perform an asynchronous operation for each item
+//   return new Promise((resolve) => {
+//     setTimeout(() => {
+//       console.log(item);
+//       resolve();
+//     }, 2000);
+//   });
+// })
+//   .then(() => {
+//     console.log("All items processed.");
+//   })
+//   .catch((error) => {
+//     console.error(error);
+//   });
 
-console.log(+"10" - 5);
+// console.log(+"10" - 5);
