@@ -124,4 +124,6 @@ const Promise = require("bluebird");
 
 // console.log(+"10" - 5);
 
+
+console.log(2 ** 2);
 console.log(2 ** 5);
