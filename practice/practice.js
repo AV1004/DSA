@@ -125,5 +125,5 @@ const Promise = require("bluebird");
 // console.log(+"10" - 5);
 
 // Exponential Operator
-// console.log(2 ** 2);
-// console.log(2 ** 5);
+console.log(2 ** 2);
+console.log(2 ** 5);
